@@ -1,0 +1,9 @@
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\bin\Debug\netcoreapp3.1\RestarauntReact.Core.deps.json
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\bin\Debug\netcoreapp3.1\RestarauntReact.Core.dll
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.csprojAssemblyReference.cache
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.AssemblyInfoInputs.cache
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.AssemblyInfo.cs
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\bin\Debug\netcoreapp3.1\RestarauntReact.Core.pdb
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.csproj.CoreCompileInputs.cache
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.dll
+D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.pdb
