@@ -6,7 +6,7 @@
 
     #endregion
 
-    public class ShoppingCartFoodsItemsVM
+    public class ShoppingsCartFoodsItemsVM
     {
         #region Properties
 
@@ -20,7 +20,7 @@
 
         #region Constructors
 
-        public ShoppingCartFoodsItemsVM()
+        public ShoppingsCartFoodsItemsVM()
         {
             ShoppingCartFoodItem = new List<ShoppingCartFoodItemVM>();
         }
