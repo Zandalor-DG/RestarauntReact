@@ -5730,19 +5730,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Семья\\.nuget\\packages\\": {}
+    "C:\\Users\\chama\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Учеба\\Git-Practice\\RestarauntReact\\RestarauntReact.Core\\RestarauntReact.Core.csproj",
+      "projectUniqueName": "C:\\Learning\\RestarauntReact\\RestarauntReact.Core\\RestarauntReact.Core.csproj",
       "projectName": "RestarauntReact.Core",
-      "projectPath": "D:\\Учеба\\Git-Practice\\RestarauntReact\\RestarauntReact.Core\\RestarauntReact.Core.csproj",
-      "packagesPath": "C:\\Users\\Семья\\.nuget\\packages\\",
-      "outputPath": "D:\\Учеба\\Git-Practice\\RestarauntReact\\RestarauntReact.Core\\obj\\",
+      "projectPath": "C:\\Learning\\RestarauntReact\\RestarauntReact.Core\\RestarauntReact.Core.csproj",
+      "packagesPath": "C:\\Users\\chama\\.nuget\\packages\\",
+      "outputPath": "C:\\Learning\\RestarauntReact\\RestarauntReact.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Семья\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\chama\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

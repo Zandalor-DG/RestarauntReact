@@ -7,3 +7,12 @@ D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\bin\Debug\netcor
 D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.csproj.CoreCompileInputs.cache
 D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.dll
 D:\Учеба\Git-Practice\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.pdb
+C:\Learning\RestarauntReact\RestarauntReact.Core\bin\Debug\netcoreapp3.1\RestarauntReact.Core.deps.json
+C:\Learning\RestarauntReact\RestarauntReact.Core\bin\Debug\netcoreapp3.1\RestarauntReact.Core.dll
+C:\Learning\RestarauntReact\RestarauntReact.Core\bin\Debug\netcoreapp3.1\RestarauntReact.Core.pdb
+C:\Learning\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.csprojAssemblyReference.cache
+C:\Learning\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.AssemblyInfoInputs.cache
+C:\Learning\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.AssemblyInfo.cs
+C:\Learning\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.csproj.CoreCompileInputs.cache
+C:\Learning\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.dll
+C:\Learning\RestarauntReact\RestarauntReact.Core\obj\Debug\netcoreapp3.1\RestarauntReact.Core.pdb

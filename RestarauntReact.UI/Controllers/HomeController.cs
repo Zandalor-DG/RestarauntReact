@@ -17,7 +17,7 @@
 
     #endregion
 
-    [Authorize]
+    
     public class HomeController : Controller
     {
         #region Properties
@@ -35,7 +35,7 @@
 
         #endregion
 
-        public IActionResult Index(string txt, bool descending, SortFoodCategory sortOrder)
+        public FoodsCategoriesVM Index(string txt, bool descending, SortFoodCategory sortOrder)
         {
             var result = NHibernateRepositories.GetSingleOrDefault<User>(a => a.Email == "admin@gmail.com");
             if (result == null)
@@ -51,24 +51,9 @@
                 NHibernateRepositories.SaveOrUpdate(createAdmin);
             }
 
-            var foodsCategoriesVM = ViewModel(txt, descending, sortOrder);
-
-            return Json(foodsCategoriesVM);
-        }
-
-        [Route("indexAJAX")]
-        [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult IndexAJAX(string txt, bool descending, SortFoodCategory sortOrder)
-        {
-            var foodsCategoriesVM = ViewModel(txt, descending, sortOrder);
-
-            return Json(foodsCategoriesVM);
-        }
-
-        private FoodsCategoriesVM ViewModel(string txt, bool descending, SortFoodCategory sortOrder)
-        {
             var foodCategory = NHibernateRepositories.GetEntities<FoodCategory>();
             var foodCategoryVM = new List<FoodCategoryVM>();
+
             if (!string.IsNullOrWhiteSpace(txt))
             {
                 txt = txt.ToLower();
@@ -104,7 +89,7 @@
                                             Admin = User.IsInRole(NHibernateRepositories.RoleAdmin)
                                     };
 
-            return foodsCategoriesVM;
+                        return foodsCategoriesVM;
         }
 
         public IActionResult SearchAllEntities(string txt)
