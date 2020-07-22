@@ -18,19 +18,28 @@
 //
 
 import 'bootstrap/dist/css/bootstrap.css';
-import React from 'react'
+import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import App from "./blogApp/containers/app.jsx"
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import App from "./blogApp/containers/app";
 import registerServiceWorker from './registerServiceWorker';
+import rootReducer from './blogApp/containers/rootReducer.jsx';
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
- const rootElement = document.getElementById('root');
+const rootElement = document.getElementById('root');
+
+function configureStore(initialState) {
+    return createStore(rootReducer, initialState, applyMiddleware(thunk))
+}
+
+const store = configureStore()
 
 ReactDOM.render(
-    <BrowserRouter basename={baseUrl}>
-        <App />
-    </BrowserRouter>,
-    rootElement);
+    <Provider store={store}>
+         <App />
+    </Provider>,
+       rootElement);
 
 registerServiceWorker();

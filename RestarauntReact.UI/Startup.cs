@@ -2,7 +2,10 @@ namespace RestarauntReact.UI
 {
     #region << Using >>
 
+    using System;
+    using System.Text;
     using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Authentication.JwtBearer;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Http;
@@ -11,6 +14,7 @@ namespace RestarauntReact.UI
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
+    using Microsoft.IdentityModel.Tokens;
     using RestarauntReact.Core;
 
     #endregion
@@ -35,12 +39,21 @@ namespace RestarauntReact.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                    .AddCookie(options =>
-                               {
-                                   options.LoginPath = new PathString("/Account/Login");
-                                   options.AccessDeniedPath = new PathString("/Account/Login");
-                               });
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                                  {
+                                      options.RequireHttpsMetadata = false;
+                                      options.SaveToken = true;
+                                      options.TokenValidationParameters = new TokenValidationParameters
+                                                                          {
+                                                                                  ValidIssuer = "ValidIssuer",
+                                                                                  ValidAudience = "ValidateAudience",
+                                                                                  IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("IssuerSigningSecretKey")),
+                                                                                  ValidateLifetime = true,
+                                                                                  ValidateIssuerSigningKey = true,
+                                                                                  ClockSkew = TimeSpan.Zero
+                                                                          };
+                                  });
 
             services.AddControllersWithViews();
 
@@ -54,7 +67,6 @@ namespace RestarauntReact.UI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        [System.Obsolete]
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
