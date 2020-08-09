@@ -1,2 +1,14 @@
-
-RestarauntReact.Core/obj/Debug/netcoreapp3.1/RestarauntReact.Core.csprojAssemblyReference.cache
+obj
+bin
+netcoreapp3.1
+.vs/Restaraunt/DesignTimeBuild/.dtbcache
+*.lock
+*.ide
+*.cache
+*.ide-wal
+*.ide-shm
+*.cache
+*.props
+*.testlog
+*.manifest
+*.user
