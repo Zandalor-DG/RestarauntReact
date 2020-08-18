@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**@jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { FC, useState, useEffect } from 'react';
@@ -38,3 +39,8 @@ export const SearchPage: FC<RouteComponentProps> = ({ location }) => {
     </Page>
   );
 };
+=======
+import React from 'react';
+import { Page } from './Page';
+export const SearchPage = () => <Page title="Search Results" />;
+>>>>>>> 90439349542c8601c16e772e31756bcf7f41333b

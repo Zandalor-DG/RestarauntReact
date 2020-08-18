@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { FC, useState, Fragment, useEffect } from 'react';
@@ -91,3 +92,8 @@ ${question.created.toLocaleTimeString()}`}
     </Page>
   );
 };
+=======
+import React from 'react';
+import { Page } from './Page';
+export const QuestionPage = () => <Page>Question Page</Page>;
+>>>>>>> 90439349542c8601c16e772e31756bcf7f41333b

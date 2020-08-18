@@ -1,5 +1,6 @@
 import React from 'react';
 import { Page } from './Page';
+<<<<<<< HEAD
 import { Form } from './Form';
 import { Field } from './Field';
 
@@ -12,3 +13,6 @@ export const AskPage = () => (
   </Page>
 );
 export default AskPage;
+=======
+export const AskPage = () => <Page title="Ask a question" />;
+>>>>>>> 90439349542c8601c16e772e31756bcf7f41333b
