@@ -7,20 +7,91 @@ export interface Values {
   [key: string]: any;
 }
 
+export interface Errors {
+  [key: string]: string[];
+}
+
+export interface Touched {
+  [key: string]: boolean;
+}
+
 interface FormContextProps {
   values: Values;
   setValue?: (fieldName: string, value: any) => void;
+  errors: Errors;
+  validate?: (fieldName: string) => void;
+  touched: Touched;
+  setTouched?: (fieldName: string) => void;
 }
 
-export const FormContext = createContext<FormContextProps>({
+const [values, setValues] = useState<Values>({});
+const [errors, setErrors] = useState<Errors>({});
+const [touched, setTouched] = useState<Touched>({});
+
+const validate = (fieldName: string): string[] => {
+  if (!validationRules) {
+    return [];
+  }
+
+  if (!validationRules[fieldName]) {
+    return [];
+  }
+
+  const rules = Array.isArray(validationRules[fieldName])
+    ? (validationRules[fieldName] as Validation[])
+    : ([validationRules[fieldName]] as Validation[]);
+
+  const fieldErrors: string[] = [];
+  rules.forEach((rule) => {
+    const error = rule.validator(values[fieldName], rule.arg);
+    if (error) {
+      fieldErrors.push(error);
+    }
+  });
+  const newErrors = { ...errors, [fieldName]: fieldErrors };
+  setErrors(newErrors);
+  return fieldErrors;
+};
+
+export const FormContext = createContext<IFormContext>({
   values: {},
+  errors: {},
+  touched: {},
 });
+
+interface Validation {
+  validator: Validator;
+  arg?: any;
+}
+interface ValidationProp {
+  [key: string]: Validation | Validation[];
+}
+interface Props {
+  submitCaption?: string;
+  validationRules?: ValidationProp;
+}
+
+type Validator = (value: any, args?: any) => string;
+
+export const required: Validator = (value: any): string =>
+  value === undefined || value === null || value === ''
+    ? 'This must be populated'
+    : '';
+
+export const minLength: Validator = (value: any, length: number): string =>
+  value && value.length < length
+    ? `This must be at least ${length} characters`
+    : '';
 
 interface Props {
   submitCaption?: string;
 }
 
-export const Form: FC<Props> = ({ submitCaption, children }) => {
+export const Form: FC<Props> = ({
+  submitCaption,
+  children,
+  validationRules,
+}) => {
   const [values, setValues] = useState<Values>({});
   return (
     <FormContext.Provider
@@ -28,6 +99,12 @@ export const Form: FC<Props> = ({ submitCaption, children }) => {
         values,
         setValue: (fieldName: string, value: any) => {
           setValues({ ...values, [fieldName]: value });
+        },
+        errors,
+        validate,
+        touched,
+        setTouched: (fieldName: string) => {
+          setTouched({ ...touched, [fieldName]: true });
         },
       }}
     >

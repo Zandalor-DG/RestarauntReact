@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { FC, useState, Fragment, useEffect } from 'react';
@@ -58,7 +57,19 @@ ${question.created.toLocaleTimeString()}`}
             margin-top: 20px;
           `}
         >
-          <Form submitCaption="Submit Your Answer">
+          <Form
+            validationRules={{
+              title: [
+                { validator: required },
+                { validator: minLength, arg: 10 },
+              ],
+              content: [
+                { validator: required },
+                { validator: minLength, arg: 50 },
+              ],
+            }}
+            submitCaption="Submit Your Answer"
+          >
             <Field name="content" label="Your Answer" type="TextArea" />
           </Form>
         </div>
@@ -92,8 +103,3 @@ ${question.created.toLocaleTimeString()}`}
     </Page>
   );
 };
-=======
-import React from 'react';
-import { Page } from './Page';
-export const QuestionPage = () => <Page>Question Page</Page>;
->>>>>>> 90439349542c8601c16e772e31756bcf7f41333b
