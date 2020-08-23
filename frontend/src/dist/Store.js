@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,8 +47,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUnansweredQuestionsActionCreator = void 0;
+exports.postQuestionActionCreator = exports.getUnansweredQuestionsActionCreator = void 0;
 var QuestionsData_1 = require("./QuestionsData");
+var redux_1 = require("redux");
 var initialQuestionState = {
     loading: false,
     unanswered: null
@@ -65,3 +77,44 @@ exports.getUnansweredQuestionsActionCreator = function () {
         });
     }); };
 };
+exports.postQuestionActionCreator = function (question) {
+    return function (dispatch) { return __awaiter(void 0, void 0, void 0, function () {
+        var result, postedQuestionAction;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, QuestionsData_1.postQuestion(question)];
+                case 1:
+                    result = _a.sent();
+                    postedQuestionAction = {
+                        type: 'PostedQuestion',
+                        result: result
+                    };
+                    dispatch(postedQuestionAction);
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+};
+var neverReached = function (never) { };
+var questionsReducer = function (state, action) {
+    if (state === void 0) { state = initialQuestionState; }
+    switch (action.type) {
+        case 'GettingUnansweredQuestions': {
+            return __assign(__assign({}, state), { unanswered: null, loading: true });
+        }
+        case 'GotUnansweredQuestions': {
+            return __assign(__assign({}, state), { unanswered: action.questions, loading: false });
+        }
+        case 'PostedQuestion': {
+            return __assign(__assign({}, state), { unanswered: action.result
+                    ? (state.unanswered || []).concat(action.result)
+                    : state.unanswered, postedResult: action.result });
+        }
+        default:
+            neverReached(action);
+    }
+    return state;
+};
+var rootReducer = redux_1.combineReducers({
+    questions: questionsReducer
+});
