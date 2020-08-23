@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { FC, useContext, ChangeEvent } from 'react';
-import { fontFamily, fontSize, gray5, gray2, gray6 } from './Styles';
 import { FormContext } from './Form';
+import { fontFamily, fontSize, gray5, gray2, gray6 } from './Styles';
 
 interface Props {
   name: string;
@@ -31,7 +31,6 @@ const baseCSS = css`
 
 export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
   const { setValue, touched, setTouched, validate } = useContext(FormContext);
-
   const handleChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
   ) => {
@@ -44,7 +43,6 @@ export const Field: FC<Props> = ({ name, label, type = 'Text' }) => {
       }
     }
   };
-
   const handleBlur = () => {
     if (setTouched) {
       setTouched(name);

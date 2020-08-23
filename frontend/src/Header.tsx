@@ -1,8 +1,8 @@
 /**@jsx jsx */
 import { css, jsx } from '@emotion/core';
-import { ChangeEvent, FC, useState } from 'react';
+import { ChangeEvent, FC, useState, FormEvent } from 'react';
 import { Link, RouteComponentProps, withRouter } from 'react-router-dom';
-import { fontFamily, fontSize, gray1, gray2, gray5 } from './Style';
+import { fontFamily, fontSize, gray1, gray2, gray5 } from './Styles';
 import { UserIcon } from './Icons';
 
 export const Header: FC<RouteComponentProps> = ({ history, location }) => {
@@ -13,6 +13,11 @@ export const Header: FC<RouteComponentProps> = ({ history, location }) => {
 
   const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.currentTarget.value);
+  };
+
+  const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    history.push(`/search?criteria=${search}`);
   };
 
   return (
@@ -42,7 +47,7 @@ export const Header: FC<RouteComponentProps> = ({ history, location }) => {
       >
         Restaraunt
       </Link>
-      <form>
+      <form onSubmit={handleSearchSubmit}>
         <input
           type="text"
           placeholder="Search..."

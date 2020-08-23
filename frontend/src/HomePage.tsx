@@ -1,7 +1,7 @@
 /**@jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { useEffect, useState, FC } from 'react';
-import { PrimaryButton } from './Style';
+import { PrimaryButton } from './Styles';
 import { QuestionList } from './QuestionList';
 import { getUnansweredQuestions, QuestionData } from './QuestionsData';
 import { Page } from './Page';
