@@ -1,0 +1,8 @@
+.app-wrapper {
+    display: grid;
+    margin: auto;
+    grid-template-areas: "header" "menuRestaurants" "footer";
+    grid-template-rows: 80px 1fr 80px;
+    grid-template-columns: 10fr;
+    grid-gap: 0px;
+}
